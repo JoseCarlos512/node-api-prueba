@@ -15,3 +15,13 @@ exports.calculateStats = (matrix) => {
         isDiagonal
     };
 };
+
+exports.calculateQRStats = (Q, R) => {
+    const statsQ = exports.calculateStats(Q);
+    const statsR = exports.calculateStats(R);
+    
+    return {
+        Q: statsQ,
+        R: statsR
+    };
+};

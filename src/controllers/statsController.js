@@ -11,3 +11,17 @@ exports.calculateStats = (req, res) => {
 
     res.send(stats);
 };
+
+exports.calculateQRStats = (req, res) => {
+    const { Q, R } = req.body;
+
+    if (!Q || !Array.isArray(Q) || !R || !Array.isArray(R)) {
+        return res.status(400).send({ error: 'Invalid input data' });
+    }
+
+    const stats = statsService.calculateQRStats(Q, R);
+
+    console.log(stats)
+
+    res.send(stats);
+};
